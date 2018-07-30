@@ -17,7 +17,9 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker login -u $DOCKER_USER -p $DOCKER_PASS quay.io
               docker tag app "quay.io/brice/dotnet-prometheus-example:${CIRCLE_SHA1}"
+              docker tag app "quay.io/brice/dotnet-prometheus-example:latest"
               docker push "quay.io/brice/dotnet-prometheus-example:${CIRCLE_SHA1}"
+              docker push "quay.io/brice/dotnet-prometheus-example:latest"
             fi
   test:
     docker:
