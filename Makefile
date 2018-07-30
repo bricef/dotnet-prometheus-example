@@ -9,3 +9,6 @@ run: image
 cleandocker:
 	docker container ls -a | grep Exited | cut -d ' ' -f 1 | xargs -n 1 docker rm
 	docker images -f "dangling=true" | tail -n +2 | awk '{print $$3}' | xargs -n 1 docker rmi
+
+test:
+	echo "OK"
