@@ -14,10 +14,16 @@ namespace NancyApplication
                 LabelNames = new[] {"method", "status"},
             });
 
-
+            // Request Logging middelware
+            app.Use((context, next) => {
+                Console.WriteLine("REQUEST "+context.Request.Method+" "+context.Request.Path);
+                return next();
+            });
 
             app.UseDeveloperExceptionPage();
             app.UseMetricServer(); // make sure this middleware comes before Nancy to intercept /metrics requests.
+            
+            // HTTP metrics middelware
             app.Use(async (context, next) => {
                 // start timer
                 var start = DateTime.Now;
