@@ -17,7 +17,7 @@ namespace NancyApplication
                 System.Threading.Thread.Sleep(sleep_ms);
 
                 // Choose a random return status code
-                var statuses = new int[] {200,200,200,200,200,200,400,400,500};
+                var statuses = new int[] {200,400,500};
                 var status = statuses[r.Next(statuses.Length)];
 
                 return Negotiate
