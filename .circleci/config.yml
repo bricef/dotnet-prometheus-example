@@ -22,6 +22,8 @@ jobs:
               docker push "quay.io/brice/dotnet-prometheus-example:${CIRCLE_SHA1}"
             fi
   test:
+    docker:
+      - image: docker:17.05.0-ce-git
     steps:
       - checkout
       - run: make test
