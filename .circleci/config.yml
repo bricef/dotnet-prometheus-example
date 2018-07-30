@@ -11,8 +11,6 @@ jobs:
           name: Build application Docker image
           command: |
             docker build -t app .
-      - test:
-
       - deploy:
           name: Push application Docker image
           command: |
