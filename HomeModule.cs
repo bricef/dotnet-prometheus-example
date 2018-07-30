@@ -8,9 +8,9 @@ namespace NancyApplication
         public HomeModule()
         {
             var r = new Random();
-            Get("/", args => "Hello World. This is pretty cool!");
+            Get("/dotnet/", args => "Hello World. This is pretty cool!");
 
-            Get("/test",  args => {
+            Get("/dotnet/test",  args => {
 
                 // incur a random delay
                 var sleep_ms = r.Next(2500);
@@ -22,6 +22,7 @@ namespace NancyApplication
 
                 return Negotiate
                     .WithStatusCode(status)
+                    .WithContentType("application/json")
                     .WithModel(new {
                         message = "Test action",
                         status = status,
