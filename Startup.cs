@@ -9,8 +9,8 @@ namespace NancyApplication
         public void Configure(IApplicationBuilder app)
         {
             app.UseDeveloperExceptionPage();
+            app.UseMetricServer(); // make sure this middleware comes before Nancy to intercept /metrics requests.
             app.UseOwin(x => x.UseNancy());
-            // app.UseMetricServer();
         }
    }
 }
