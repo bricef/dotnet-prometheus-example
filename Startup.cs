@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Nancy.Owin;
+using Prometheus;
 
 namespace NancyApplication
 {
@@ -7,7 +8,9 @@ namespace NancyApplication
     {
         public void Configure(IApplicationBuilder app)
         {
+            app.UseDeveloperExceptionPage();
             app.UseOwin(x => x.UseNancy());
+            // app.UseMetricServer();
         }
    }
 }
